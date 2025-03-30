@@ -1,19 +1,27 @@
 const language = navigator.language || navigator.userLanguage;
 
 const supportedLanguages = {
-    "pt": "pt-br.json",  // Portuguese - Brazil
-    "en": "en.json",     // English - Global
-    "es": "es.json"      // Spanish - Spain
+    "pt": "pt-br.json",
+    "pt-pt": "pt-pt.json",
+    "it": "it.json",
+    "fr": "fr.json",
+    "de": "de.json",
+    "ru": "ru.json",
+    "zh-cn": "zh-cn.json",
+    "zh-tw": "zh-tw.json",
+    "ja": "ja.json",
+    "en": "en.json"
 };
 
-const primaryLanguage = language.split('-')[0];
+let primaryLanguage = language.split('-')[0];
+let fullLanguage = language.toLowerCase();
+
+if (!supportedLanguages[fullLanguage]) {
+    fullLanguage = primaryLanguage;
+}
 
 async function loadLanguage(lang) {
     try {
-        if (!supportedLanguages[lang]) {
-            lang = 'en';
-        }
-
         const response = await fetch(`Assets/locales/${supportedLanguages[lang]}`);
         const data = await response.json();
 
@@ -27,4 +35,4 @@ async function loadLanguage(lang) {
     }
 }
 
-loadLanguage(primaryLanguage);
+loadLanguage(fullLanguage);
