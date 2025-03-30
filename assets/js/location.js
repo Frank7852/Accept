@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     async function loadLanguage(lang) {
         try {
-            const response = await fetch(`../assets/locales/${supportedLanguages[lang]}`);
+            const response = await fetch(`./assets/locales/${supportedLanguages[lang]}`);
 
             if (!response.ok) {
                 throw new Error(`Failed to load language file: ${response.status}`);
