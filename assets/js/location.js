@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     async function loadLanguage(lang) {
         try {
-            const response = await fetch(`./assets/locales/${supportedLanguages[lang]}`);
+            const response = await fetch(`../assets/locales/${supportedLanguages[lang]}`);
 
             if (!response.ok) {
                 throw new Error(`Failed to load language file: ${response.status}`);
@@ -33,11 +33,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // Verificar se todos os dados necessários existem antes de tentar usar
             if (data.title && data.heading && data.yes && data.no && data.message) {
-                document.getElementById('title').textContent = data.title;
-                document.getElementById('heading').textContent = data.heading;
-                document.getElementById('yes').textContent = data.yes;
-                document.getElementById('no').textContent = data.no;
-                document.getElementById('message').textContent = data.message;
+                const titleElement = document.getElementById('title');
+                const headingElement = document.getElementById('heading');
+                const yesButton = document.getElementById('yes');
+                const noButton = document.getElementById('no');
+                const messageElement = document.getElementById('message');
+
+                if (titleElement) titleElement.textContent = data.title;
+                if (headingElement) headingElement.textContent = data.heading;
+                if (yesButton) yesButton.textContent = data.yes;
+                if (noButton) noButton.textContent = data.no;
+                if (messageElement) messageElement.textContent = data.message;
             } else {
                 console.error("Missing translation data in the JSON file.");
             }
