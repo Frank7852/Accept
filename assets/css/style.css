@@ -1,0 +1,49 @@
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #ffb0b0;
+    font-family: 'Montserrat', sans-serif;
+    overflow: hidden;
+}
+
+.container {
+    text-align: center;
+}
+
+.text {
+    font-size: 2em;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 30px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.button {
+    padding: 15px 30px;
+    border-radius: 5px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    font-size: 1em;
+    background-color: rgb(250, 125, 125);
+    color: #fff;
+}
+
+.yes:hover {
+    transform: scale(1.1);
+}
+
+.message {
+    font-size: 1.5em;
+    color: #fff;
+    margin-top: 20px;
+}
